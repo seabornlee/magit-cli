@@ -1,5 +1,4 @@
-mod app;
-mod ui;
+use std::{error::Error, io::stdout, sync::mpsc, thread, time::{Duration, Instant}};
 
 use argh::FromArgs;
 use crossterm::{
@@ -7,10 +6,13 @@ use crossterm::{
     execute,
     terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
 };
-
-use std::{error::Error, io::stdout, sync::mpsc, thread, time::{Duration, Instant}, io};
 use tui::{backend::CrosstermBackend, Terminal};
+
 use crate::app::App;
+
+mod app;
+mod ui;
+mod git_helper;
 
 enum Event<I> {
     Input(I),

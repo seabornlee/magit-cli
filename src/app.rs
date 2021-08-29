@@ -11,7 +11,7 @@ impl<'a> App<'a> {
         }
     }
 
-    pub fn on_key(&mut self, c: char) {
+    pub fn on_key(&mut self, _c: char) {
 
     }
 
